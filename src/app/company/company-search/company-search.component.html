@@ -1,0 +1,56 @@
+<mat-card>
+
+        <mat-card-header>
+    
+            <mat-card-title>Company search</mat-card-title>
+    
+        </mat-card-header>
+    
+        <mat-divider></mat-divider>
+    
+        <mat-card-content>
+    
+            <mat-form-field fxFlex="40%">
+    
+                <input  #txtSearchName matInput type="text" placeholder="company name">
+    
+              </mat-form-field>
+    
+    
+    
+    
+            <mat-table [dataSource]="companies">
+    
+                <ng-container matColumnDef="name">
+    
+                    <mat-header-cell *matHeaderCellDef  >Name</mat-header-cell>
+    
+                    <mat-cell *matCellDef="let company"> {{company.name}} </mat-cell>
+    
+                </ng-container>
+    
+                <ng-container matColumnDef="address" >
+    
+                    <mat-header-cell *matHeaderCellDef>Address</mat-header-cell>
+    
+                    <!-- <td mat-cell *matCellDef="let company">{{company.address}}</td> -->
+    
+                    <mat-cell *matCellDef="let company" [innerHTML]="company.address"></mat-cell>
+    
+                </ng-container>
+    
+                <mat-header-row *matHeaderRowDef="['name','address']; sticky: true" class="header-row"></mat-header-row>
+    
+                <mat-row  *matRowDef="let row; columns: ['name','address'];" (click)="selectedRow(row)" class="data-row" [routerLink]="['/company', row.id]"></mat-row>
+    
+            </mat-table>
+    
+        </mat-card-content>
+    
+        <mat-card-actions align="end">
+    
+            <button mat-raised-button color="primary" [routerLink]="['/company/create']">Create company</button>
+    
+        </mat-card-actions>
+    
+    </mat-card>

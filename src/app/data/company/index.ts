@@ -1,0 +1,1 @@
+export {DTOCompany} from  "./dtocompany"; 
