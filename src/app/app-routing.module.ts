@@ -4,10 +4,9 @@ import { CompanyEditComponent } from './company/company-edit/company-edit.compon
 import { CompanySearchComponent } from './company/company-search/company-search.component';
 
 const routes: Routes = [
-  {path: 'companies' , component: CompanySearchComponent},
+  {path: 'companies', component: CompanySearchComponent},
   {path: 'company/:id', component: CompanyEditComponent}
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

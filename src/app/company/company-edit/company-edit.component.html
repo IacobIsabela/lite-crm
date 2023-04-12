@@ -1,1 +1,34 @@
-<p>company-edit works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Company edit</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <mat-form-field>
+            <input matInput required placeholder="company name" type="text" [(ngModel)]="company.name">
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <textarea matInput required placeholder="address" [(ngModel)]="company.address"></textarea>
+        </mat-form-field> -->
+        <!-- <mat-form-field>
+            <input matInput required placeholder="address line 1" type="text" [(ngModel)]="company.mainAddress!.addressLine1">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput required placeholder="address line 2" type="text" [(ngModel)]="company.mainAddress!.addressLine2">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput required placeholder="address line 3" type="text" [(ngModel)]="company.mainAddress!.addressLine3">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select [(value)] = "company.mainAddress!.countryId">
+                <mat-option *ngFor="let country of countries" [value]="country.id">
+                  {{country.name}}
+                </mat-option>
+              </mat-select>
+        </mat-form-field> -->
+        <app-address-edit [address]="company.mainAddress!"></app-address-edit>
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="onSave()">Save changes</button>
+    </mat-card-actions>
+</mat-card>
